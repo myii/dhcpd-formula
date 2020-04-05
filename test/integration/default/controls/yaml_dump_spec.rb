@@ -3,11 +3,12 @@
 control 'DHCPD `map.jinja` YAML dump' do
   title 'should contain the lines'
 
+  arch = 'amd64'
   config = '/etc/dhcp/dhcpd.conf'
   enable = 'false'
   server = 'dhcp'
   service = 'dhcpd'
-  yaml_dump = "---\n"
+  yaml_dump = "---\n#{arch}\n"
   yaml_dump +=
     case platform[:family]
     when 'debian'
