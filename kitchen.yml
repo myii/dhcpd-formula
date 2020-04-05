@@ -161,7 +161,7 @@ suites:
         base:
           '*':
             - dhcpd.yaml_dump
-            - dhcpd.config
+            # - dhcpd.config
       pillars:
         top.sls:
           base:
