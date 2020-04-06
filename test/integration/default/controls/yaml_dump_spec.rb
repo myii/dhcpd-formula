@@ -53,7 +53,7 @@ control 'DHCPD `map.jinja` YAML dump' do
   yaml_dump +=
     case platform[:family]
     when 'debian'
-      <<~YAML_DUMP
+      <<~YAML_DUMP.chomp
         #{common01}
         config: #{config}
         #{common02}
@@ -67,7 +67,7 @@ control 'DHCPD `map.jinja` YAML dump' do
         #{common06}
       YAML_DUMP
     when 'redhat', 'fedora'
-      <<~YAML_DUMP
+      <<~YAML_DUMP.chomp
         #{common01}
         config: #{config}
         #{common02}
@@ -81,7 +81,7 @@ control 'DHCPD `map.jinja` YAML dump' do
         #{common06}
       YAML_DUMP
     when 'suse'
-      <<~YAML_DUMP
+      <<~YAML_DUMP.chomp
         #{common01}
         config: /etc/dhcpd.conf
         #{common02}
@@ -94,7 +94,7 @@ control 'DHCPD `map.jinja` YAML dump' do
         #{common06}
       YAML_DUMP
     when 'freebsd'
-      <<~YAML_DUMP
+      <<~YAML_DUMP.chomp
         #{common01}
         config: /usr/local/etc/dhcpd.conf
         #{common02}
@@ -111,7 +111,7 @@ control 'DHCPD `map.jinja` YAML dump' do
     when 'linux'
       case platform[:name]
       when 'arch'
-        <<~YAML_DUMP
+        <<~YAML_DUMP.chomp
           #{common01}
           config: /etc/dhcpd.conf
           #{common02}
