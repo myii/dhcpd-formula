@@ -172,3 +172,27 @@ suites:
     verifier:
       inspec_tests:
         - path: test/integration/default
+  - name: ldap
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - openldap
+            - dhcpd.yaml_dump
+            - dhcpd.config
+      pillars:
+        top.sls:
+          base:
+            '*':
+              - openldap
+              - dhcpd
+      pillars_from_files:
+        openldap.sls: test/salt/pillar/openldap.sls
+        dhcpd.sls: test/salt/pillar/ldap.sls
+      dependencies:
+        - name: openldap
+          repo: git
+          source: https://github.com/saltstack-formulas/openldap-formula.git
+    verifier:
+      inspec_tests:
+        - path: test/integration/ldap
