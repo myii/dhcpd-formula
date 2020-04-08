@@ -6,7 +6,7 @@ when 'debian'
   service_name = 'isc-dhcp-server'
 when 'freebsd'
   service_name = 'isc-dhcpd'
-when 'redhat', 'suse'
+when 'redhat', 'fedora', 'suse'
   service_name = 'dhcpd'
 end
 

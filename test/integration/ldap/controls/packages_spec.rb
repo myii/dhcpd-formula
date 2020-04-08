@@ -6,7 +6,7 @@ when 'debian'
   package_name = 'isc-dhcp-server'
 when 'freebsd'
   package_name = 'isc-dhcp43-server'
-when 'suse'
+when 'suse', 'fedora'
   package_name = 'dhcp-server'
 end
 

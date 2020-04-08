@@ -77,7 +77,7 @@ control 'DHCPD `map.jinja` YAML dump' do
         service_config: /etc/default/isc-dhcp-server
         #{common06}
       YAML_DUMP
-    when 'redhat', 'fedora'
+    when 'redhat'
       <<~YAML_DUMP.chomp
         #{common01}
         config: #{config}
@@ -86,6 +86,20 @@ control 'DHCPD `map.jinja` YAML dump' do
         #{common03}
         #{common04}
         server: #{server}
+        #{common05}
+        service: #{service}
+        service_config: /etc/systemd/system/dhcpd.service.d/override.conf
+        #{common06}
+      YAML_DUMP
+    when 'fedora'
+      <<~YAML_DUMP.chomp
+        #{common01}
+        config: #{config}
+        #{common02}
+        enable: #{enable}
+        #{common03}
+        #{common04}
+        server: dhcp-server
         #{common05}
         service: #{service}
         service_config: /etc/systemd/system/dhcpd.service.d/override.conf
