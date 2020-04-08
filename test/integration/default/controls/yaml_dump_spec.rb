@@ -3,13 +3,13 @@
 control 'DHCPD `map.jinja` YAML dump' do
   title 'should contain the lines'
 
-  spurious_whitespace = ''
-  spurious_whitespace_additional = ''
-  case platform[:family]
-  when 'fedora'
-    spurious_whitespace = '      '
-    spurious_whitespace_additional = '    '
-  end
+  # spurious_whitespace = ''
+  # spurious_whitespace_additional = ''
+  # case platform[:family]
+  # when 'fedora'
+  #   spurious_whitespace = '      '
+  #   spurious_whitespace_additional = '    '
+  # end
   arch = 'amd64'
   common01 = <<~COMMON.chomp
     allow: []
@@ -23,9 +23,7 @@ control 'DHCPD `map.jinja` YAML dump' do
 
           in a certain class get addresses on the 10.17.224/24 subnet, and all
 
-          other clients get addresses on the 10.0.29/24 subnet.
-
-    #{spurious_whitespace}'
+          other clients get addresses on the 10.0.29/24 subnet.'
         match: if substring (option vendor-class-identifier, 0, 4) = "SUNW"
   COMMON
   common02 = <<~COMMON.chomp
@@ -68,17 +66,13 @@ control 'DHCPD `map.jinja` YAML dump' do
 
           to which a BOOTP client is connected which has the dynamic-bootp flag
 
-          set.
-
-    #{spurious_whitespace}'
+          set.'
         hardware: ethernet 08:00:07:26:c0:a5
         fixed_address: fantasia.fugue.com
       joe:
         comment: 'The hostname for a host can be passed in the DHCP response. Using the
 
-          host_name key sets option host-name in the dhcpd configuration.
-
-    #{spurious_whitespace}'
+          host_name key sets option host-name in the dhcpd configuration.'
         hardware: ethernet 08:00:2b:4c:29:32
         fixed_address: joe.fugue.com
         host_name: joe
@@ -89,9 +83,7 @@ control 'DHCPD `map.jinja` YAML dump' do
 
           allocated dynamically (if possible), but the host-specific information
 
-          will still come from the host declaration.
-
-    #{spurious_whitespace}'
+          will still come from the host declaration.'
         hardware: ethernet 0:0:c0:5d:bd:95
         filename: vmunix.passacaglia
         server_name: toccata.fugue.com
@@ -153,9 +145,7 @@ control 'DHCPD `map.jinja` YAML dump' do
       10.152.187.0:
         comment: 'No service will be given on this subnet, but declaring it helps the
 
-          DHCP server to understand the network topology.
-
-    #{spurious_whitespace}'
+          DHCP server to understand the network topology.'
         netmask: 255.255.255.0
         pools:
         - failover_peer: dhcp-failover
@@ -174,9 +164,7 @@ control 'DHCPD `map.jinja` YAML dump' do
       10.254.239.32:
         comment: 'This declaration allows BOOTP clients to get dynamic addresses,
 
-          which we don''t really recommend.
-
-    #{spurious_whitespace}'
+          which we don''t really recommend.'
         netmask: 255.255.255.224
         dynamic_bootp: true
         range:
@@ -200,9 +188,7 @@ control 'DHCPD `map.jinja` YAML dump' do
         max_lease_time: 7200
         hosts:
           jake:
-            comment: 'Hosts can be specified for subnets, taking subnets defaults
-
-    #{spurious_whitespace}#{spurious_whitespace_additional}'
+            comment: Hosts can be specified for subnets, taking subnets defaults
             hardware: ethernet 08:00:a7:26:c0:a9
             fixed_address: 10.5.5.27
     update_static_leases: false
