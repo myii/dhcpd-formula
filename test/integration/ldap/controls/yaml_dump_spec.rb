@@ -143,7 +143,7 @@ control 'DHCPD `map.jinja` YAML dump' do
           enable: #{enable}
           #{common03}
           #{common04}
-          server: dhcp
+          server: #{server}
           #{common05}
           service: dhcpd4
           #{common06}
