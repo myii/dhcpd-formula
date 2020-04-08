@@ -3,6 +3,13 @@
 control 'DHCPD `map.jinja` YAML dump' do
   title 'should contain the lines'
 
+  spurious_whitespace = ''
+  spurious_whitespace_additional = ''
+  case platform[:family]
+  when 'fedora'
+    spurious_whitespace = '      '
+    spurious_whitespace_additional = '    '
+  end
   arch = 'amd64'
   common01 = <<~COMMON.chomp
     allow: []
@@ -18,7 +25,7 @@ control 'DHCPD `map.jinja` YAML dump' do
 
           other clients get addresses on the 10.0.29/24 subnet.
 
-    '
+    #{spurious_whitespace}'
         match: if substring (option vendor-class-identifier, 0, 4) = "SUNW"
   COMMON
   common02 = <<~COMMON.chomp
@@ -63,7 +70,7 @@ control 'DHCPD `map.jinja` YAML dump' do
 
           set.
 
-    '
+    #{spurious_whitespace}'
         hardware: ethernet 08:00:07:26:c0:a5
         fixed_address: fantasia.fugue.com
       joe:
@@ -71,7 +78,7 @@ control 'DHCPD `map.jinja` YAML dump' do
 
           host_name key sets option host-name in the dhcpd configuration.
 
-    '
+    #{spurious_whitespace}'
         hardware: ethernet 08:00:2b:4c:29:32
         fixed_address: joe.fugue.com
         host_name: joe
@@ -84,7 +91,7 @@ control 'DHCPD `map.jinja` YAML dump' do
 
           will still come from the host declaration.
 
-    '
+    #{spurious_whitespace}'
         hardware: ethernet 0:0:c0:5d:bd:95
         filename: vmunix.passacaglia
         server_name: toccata.fugue.com
@@ -148,7 +155,7 @@ control 'DHCPD `map.jinja` YAML dump' do
 
           DHCP server to understand the network topology.
 
-    '
+    #{spurious_whitespace}'
         netmask: 255.255.255.0
         pools:
         - failover_peer: dhcp-failover
@@ -169,7 +176,7 @@ control 'DHCPD `map.jinja` YAML dump' do
 
           which we don''t really recommend.
 
-    '
+    #{spurious_whitespace}'
         netmask: 255.255.255.224
         dynamic_bootp: true
         range:
@@ -195,7 +202,7 @@ control 'DHCPD `map.jinja` YAML dump' do
           jake:
             comment: 'Hosts can be specified for subnets, taking subnets defaults
 
-    '
+    #{spurious_whitespace}#{spurious_whitespace_additional}'
             hardware: ethernet 08:00:a7:26:c0:a9
             fixed_address: 10.5.5.27
     update_static_leases: false
