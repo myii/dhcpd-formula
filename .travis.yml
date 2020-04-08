@@ -69,33 +69,33 @@ jobs:
     ## Define the rest of the matrix based on Kitchen testing
     # Make sure the instances listed below match up with
     # the `platforms` defined in `kitchen.yml`
-    - env: INSTANCE=ldap-debian-10-master-py3
-    - env: INSTANCE=ldap-ubuntu-1804-master-py3
+    # - env: INSTANCE=ldap-debian-10-master-py3
+    # - env: INSTANCE=ldap-ubuntu-1804-master-py3
     # - env: INSTANCE=ldap-centos-8-master-py3
     - env: INSTANCE=ldap-fedora-31-master-py3
-    - env: INSTANCE=ldap-opensuse-leap-151-master-py3
+    # - env: INSTANCE=ldap-opensuse-leap-151-master-py3
     # - env: INSTANCE=ldap-amazonlinux-2-master-py3
     # - env: INSTANCE=ldap-arch-base-latest-master-py2
-    # - env: INSTANCE=ldap-debian-10-2019-2-py3
-    - env: INSTANCE=ldap-debian-9-2019-2-py3
-    # - env: INSTANCE=ldap-ubuntu-1804-2019-2-py3
+    - env: INSTANCE=ldap-debian-10-2019-2-py3
+    # - env: INSTANCE=ldap-debian-9-2019-2-py3
+    - env: INSTANCE=ldap-ubuntu-1804-2019-2-py3
     # - env: INSTANCE=ldap-centos-8-2019-2-py3
-    # - env: INSTANCE=ldap-fedora-31-2019-2-py3
-    # - env: INSTANCE=ldap-opensuse-leap-151-2019-2-py3
+    - env: INSTANCE=ldap-fedora-31-2019-2-py3
+    - env: INSTANCE=ldap-opensuse-leap-151-2019-2-py3
     # - env: INSTANCE=ldap-centos-7-2019-2-py2
     # - env: INSTANCE=ldap-amazonlinux-2-2019-2-py3
     # - env: INSTANCE=ldap-arch-base-latest-2019-2-py2
     - env: INSTANCE=ldap-fedora-30-2018-3-py3
-    # - env: INSTANCE=ldap-debian-9-2018-3-py2
-    - env: INSTANCE=ldap-ubuntu-1604-2018-3-py2
+    - env: INSTANCE=ldap-debian-9-2018-3-py2
+    # - env: INSTANCE=ldap-ubuntu-1604-2018-3-py2
     # - env: INSTANCE=ldap-centos-7-2018-3-py2
     # - env: INSTANCE=ldap-opensuse-leap-151-2018-3-py2
     # - env: INSTANCE=ldap-amazonlinux-1-2018-3-py2
     # - env: INSTANCE=ldap-arch-base-latest-2018-3-py2
     - env: INSTANCE=ldap-debian-8-2017-7-py2
-    # - env: INSTANCE=ldap-ubuntu-1604-2017-7-py2
-    - env: INSTANCE=ldap-centos-6-2017-7-py2
-    # - env: INSTANCE=ldap-fedora-30-2017-7-py2
+    - env: INSTANCE=ldap-ubuntu-1604-2017-7-py2
+    # - env: INSTANCE=ldap-centos-6-2017-7-py2
+    - env: INSTANCE=ldap-fedora-30-2017-7-py2
     # - env: INSTANCE=ldap-opensuse-leap-151-2017-7-py2
     # - env: INSTANCE=ldap-amazonlinux-1-2017-7-py2
     # - env: INSTANCE=ldap-arch-base-latest-2017-7-py2
