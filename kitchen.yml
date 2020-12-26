@@ -154,7 +154,7 @@ suites:
         base:
           '*':
             - dhcpd._mapdata
-            - dhcpd.config
+            # - dhcpd.config
       pillars:
         top.sls:
           base:
